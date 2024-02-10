@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="h-100" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.1">
+  <meta name="HandheldFriendly" content="true">
+  <title>Modifier patient</title>
+      <link rel="stylesheet" th:href="@{/css_pat/min/theme.css}">
+      <link rel="stylesheet" th:href="@{/css_pat/aos.css}">
+    
+
+  </head>
+  <style th:inline="text">
+
+      .bg-img {
+       background-color: white;
+         background-image: url([[@{/img_pat/webp/img.png}]]);
+       background-size: 100%;
+       background-repeat: no-repeat;
+   }
+
+  </style>
+  <style>
+
+      /* inter-300 - latin */
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: local(''),
+             url('./fonts/inter-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+             url('./fonts/inter-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
+
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: local(''),
+             url('./fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+             url('./fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local(''),
+             url('./fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+             url('./fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
+
+  </style>
+
+
+  <body class="position-relative d-flex h-100 w-100" data-bs-spy="scroll" data-bs-target="#navScroll">
+    <div class="h-100 container-fluid position-relative">
+      <div class="h-100 row d-flex align-items-stretch position-relative z-1">
+        
+          <div class="p-0 col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-5 d-flex align-items-start flex-column shadow position-relative">
+          
+            <header class="mb-auto py-vh-2 col-12 px-vw-5">
+              <nav id="navScroll" class="navbar navbar-expand-lg navbar-dark d-flex px-3" tabindex="0">
+   
+  <div class="fw-bold fs-4">update patient</div>
+</nav>
+
+            </header>
+            <main class="mb-auto col-12 px-vw-5">
+<form class="row" data-aos="fade-up" th:action="@{/patients/modifier/{id}(id=${patient.id_pat})}" th:object="${patient}" method="post">
+  <div class="col-12">
+    <div class="mb-3" data-aos="fade-left" data-aos-delay="100">
+        <input type="hidden" th:field="*{id_pat}" />
+        <label for="InputName1" class="form-label">update nom</label>
+      <input type="text" class="form-control form-control-lg" id="InputName1" th:field="*{nom_pat}">
+    </div>
+    <div class="mb-3" data-aos="fade-left" data-aos-delay="100">
+      <label for="InputName2" class="form-label">update prenom </label>
+      <input type="text" class="form-control form-control-lg" id="InputName2" th:field="*{prenom_pat}">
+    </div>
+    <div class="mb-3" data-aos="fade-left" data-aos-delay="100">
+      <label for="InputName3" class="form-label">update Cin</label>
+      <input type="text" class="form-control form-control-lg" id="InputName3" th:field="*{cin}">
+    </div>
+    <div class="mb-3" data-aos="fade-left" data-aos-delay="100">
+      <label for="InputName4" class="form-label">update Age</label>
+      <input type="text" class="form-control form-control-lg" id="InputName4" th:field="*{age}">
+    </div>
+    <div class="mb-3" data-aos="fade-left" data-aos-delay="100">
+      <label for="InputName5" class="form-label">update poids</label>
+      <input type="text" class="form-control form-control-lg" id="InputName5" th:field="*{poids}" >
+    </div>
+  
+  <div class="mb-3" data-aos="fade-left" data-aos-delay="500">
+        <label for="exampleTextarea1" class="form-label">update description</label>
+    <textarea class="form-control rounded-1" aria-label="With textarea" rows="5" id="exampleTextarea1"  th:field="*{description}"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-black btn-xl shadow me-1 mb-5" data-aos="fade-left" data-aos-delay="900">
+    Submit update
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right ms-2" viewbox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
+  </button>
+</div>
+</form>
+
+
+            </main>
+                        <footer class="mb-auto col-12 py-vh-3 px-vw-5">
+            
+  <div class="row d-flex justify-content-between small">
+    <div class="col-12 col-md-auto d-flex justify-content-center">
+  <ul class="nav bg-light rounded px-3">
+   
+    
+  </ul>
+</div>
+  
+</div>
+
+          </footer>
+          </div>
+          
+            <div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-5 col-xxl-7 bg-cover py-vh-max py-lg-0 bg-black ba-local position-fixed top-0 end-0 z-0 h-100 bg-img" data-aos="fade"></div>
+          
+        </div>
+      </div>
+
+    <script th:src="@{/js_pat/bootstrap.bundle.min.js}" async></script>
+    <script th:src="@{/js_pat/aos.js}"></script>
+    <script>
+
+        AOS.init({});
+
+    </script>
+  </body>
+
+</html>

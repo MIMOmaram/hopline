@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<meta name="HandheldFriendly" content="true">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Supprimer Docteur</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .container {
+        max-width: 400px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        background-color: #007BFF; /* Couleur bleue */
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3; /* Couleur bleu foncé au survol */
+    }
+
+    #responseMessage {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+<div class="container">
+    <h1>Supprimer un docteur</h1>
+    <form id="deleteDoctorForm" method="post" th:action="@{/docteurs/supprimer}" th:object="${docteur}">
+        <label for="doctorId">ID du docteur à supprimer :</label>
+        <input type="text" id="doctorId" name="id" required th:value="${docteur.id_doc}" readonly>
+        <button type="submit">Supprimer</button>
+    </form>
+
+    <div id="responseMessage"></div>
+</div>
+
+
+</body>
+</html>

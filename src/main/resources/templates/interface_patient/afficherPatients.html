@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient Information</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background-color: #093c72;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover {
+            background-color: #e0e0e0;
+            nav {
+    color:#00587a;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+nav a {
+    color: #00587a;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+        }
+    </style>
+</head>
+
+<body>
+<nav>
+    <div >
+        <a th:href="@{/patients/afficher}">Afficher </a>
+        <a th:href="@{/patients/ajouter_patient}">Ajouter </a>
+
+    </div>
+</nav>
+<h1>patient Information</h1>
+<form th:action="@{/patients/afficher}"
+      th:object="${patient}" method="get">
+<table>
+    <thead>
+    <tr>
+        <th>Nom patient</th>
+        <th>Prenom patient</th>
+        <th>Cin</th>
+        <th>poids</th>
+        <th>Age</th>
+        <th>description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.nom_pat}"></td>
+        <td th:text="${patient.prenom_pat}"></td>
+        <td th:text="${patient.cin}"></td>
+        <td th:text="${patient.poids}"></td>
+        <td th:text="${patient.age}"></td>
+        <td th:text="${patient.description}"></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+
+</body>
+
+</html>
